@@ -1,5 +1,7 @@
 # A container for making Debian images for VMs
 
+NEVER RUN THIS CONTAINER IN PRIVILEGED MODE.
+
 ## Usage
 
 Pass a kernel source tree, configuration (URL or file path), and an output file path.
