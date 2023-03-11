@@ -39,7 +39,8 @@ tree ./images
 ├── initrd.img-6.3.0-rc1+
 ├── System.map-6.3.0-rc1+
 ├── vmlinux
+├── debian_bullseye.qcow2
 └── vmlinuz-6.3.0-rc1+
 
-0 directories, 5 files
+0 directories, 6 files
 ```

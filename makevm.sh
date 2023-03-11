@@ -41,3 +41,21 @@ make install INSTALL_PATH="${OUTDIR}"
 update-initramfs -c -k all -b "${OUTDIR}"
 cp vmlinux "${OUTDIR}"
 cd "${olddir}"
+
+disk=${OUTDIR}/debian_bullseye.qcow2
+URL=https://app.vagrantup.com/generic/boxes/debian11/versions/4.2.8/providers/libvirt.box
+wget ${URL} -O libvirt.tar.gz
+cleanup() {
+	rm -rf libvirt.tar.gz
+	rm -rf info.json
+	rm -rf metadata.json
+}
+trap cleanup EXIT
+mkdir -p $(dirname ${disk})
+tar xvf libvirt.tar.gz
+mv box.img ${disk}
+wget https://raw.githubusercontent.com/hashicorp/vagrant/main/keys/vagrant \
+	-O ${OUTDIR}/vagrant.key
+wget https://raw.githubusercontent.com/hashicorp/vagrant/main/keys/vagrant.pub \
+	-O ${OUTDIR}/vagrant.pub
+chmod 600 ${OUTDIR}/vagrant.key ${OUTDIR}/vagrant.pub
