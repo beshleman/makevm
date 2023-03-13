@@ -2,6 +2,20 @@
 
 NEVER RUN THIS CONTAINER IN PRIVILEGED MODE.
 
+The container creates images for use in kernel developent.
+
+It is a companion repo to [runvm](https://github.com/beshleman/runvm).
+See this repo for full examples of making and running VMs.
+
+The VM built is from vagrant, which means it has the following users:
+
+|  username  | password  |
+| ---------- | --------- |
+| vagrant    | root      |
+| vagrant    | vagrant   |
+
+The VM uses the [insecure Vagrant SSH keypair](https://github.com/hashicorp/vagrant/tree/master/keys).
+
 ## Usage
 
 Pass a kernel source tree, configuration (URL or file path), and an output file path.
