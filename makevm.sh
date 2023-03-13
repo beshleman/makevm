@@ -49,6 +49,7 @@ cleanup() {
 	rm -rf libvirt.tar.gz
 	rm -rf info.json
 	rm -rf metadata.json
+	rm -rf Vagrantfile
 }
 trap cleanup EXIT
 mkdir -p $(dirname ${disk})
