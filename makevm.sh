@@ -37,8 +37,8 @@ make -j"$(nproc)"
 
 mkdir -p "${OUTDIR}"
 make install
-make install INSTALL_PATH="${OUTDIR}"
-update-initramfs -c -k all -b "${OUTDIR}"
+cp /boot/* ${OUTDIR}/
+chmod ag+rw ${OUTDIR}/*
 cp vmlinux "${OUTDIR}"
 cd "${olddir}"
 
